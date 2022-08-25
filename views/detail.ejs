@@ -1,0 +1,42 @@
+<main>
+    <section class="home-list">
+        <a href="/">Acceuil</a>
+
+        <article class="article-detail">
+            <h2><%=datas.Title%></h2>
+            <p><%=datas.Contents%></p>
+            <p class="auth">par : <%=datas.FirstName%> <%=datas.LastName%></p>
+        </article>
+
+        <hr>
+
+        <section class="comment-article">
+            <h2>Commentaires</h2>
+            <% for( const comment of comments ) { %>
+                <article class="comment-detail">
+                    <div>
+                        <!-- show nickname if is not null else show undefined -->
+                        <% if (comment.NickName !== null) { %>
+                            <h3 class="auth reset"><%=comment.NickName%></h3>
+                        <% } else { %>
+                            <h3 class="auth reset">Unknown</h3>
+                        <% } %>
+                        <p class="p.date-comment reset"><%=(comment.CreationTimestamp).toLocaleDateString()%></p>
+                    </div>
+                    <p><%=comment.Contents%></p>
+
+                    <div class="divider"></div>
+                </article>
+            <% } %>
+
+            <hr>
+            
+            <form action="">
+                <label for="">Alias:</label>
+                <input type="text" name="alias" id="alias">
+                <label for="">Votre message:</label>
+                <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                <input type="submit" value="Envoyer le com!">
+            </form>
+    </section>
+</main>

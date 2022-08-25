@@ -1,0 +1,14 @@
+<main>
+    <h2>Bienvenue sur mon blog</h2>
+
+    <section class="home-list">
+        <article class="article-detail">
+            <% for( const data of datas ) { %>
+                <a href="/detail/<%=data.Id%>"><%=data.Title%></a>
+                <p><%=(data.Contents).substring(0, 30) + '...'%></p>
+                <p><%=data.FirstName%> <%=data.LastName%></p>
+                <p class="p.date-comment"><%=(data.CreationTimestamp).toLocaleDateString()%></p>
+            <% } %>
+        </article>
+    </section>
+</main>
